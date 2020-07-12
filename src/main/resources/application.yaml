@@ -1,0 +1,15 @@
+server:
+  port: 8443
+
+spring:
+  profiles:
+    active:
+
+---
+
+spring:
+  profiles: local
+
+---
+spring:
+  profiles: aws
