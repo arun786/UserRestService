@@ -2,12 +2,22 @@ package com.arun.userrestservice.dao;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
+@Entity
 public class UserDao {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String firstName;
     private String lastName;

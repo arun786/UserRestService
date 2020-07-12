@@ -33,7 +33,7 @@ dependencies {
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
     //map struct
-    compileOnly "org.mapstruct:mapstruct:${mapStructVersion}"
+    implementation "org.mapstruct:mapstruct:${mapStructVersion}"
     annotationProcessor "org.mapstruct:mapstruct-processor:${mapStructVersion}"
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
@@ -41,6 +41,12 @@ dependencies {
     }
 }
 
+/**
+ * bootJar creates an executable jar, which can be done by using build or assemble
+ * Normally when we build, the jar file goes to build/lib folder, but if we want it
+ * to be say in the build folder, we can use copy as below and rename the file, using
+ * rename
+ */
 bootJar {
     doLast {
         copy {
