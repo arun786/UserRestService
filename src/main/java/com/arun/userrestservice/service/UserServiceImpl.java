@@ -24,9 +24,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getService(Long id) {
+    public User getUserById(Long id) {
         Optional<UserDao> userDao = userRepository.findById(id);
         //todo throw an exception instead of null
         return userDao.map(userMapper::userDaoToUser).orElse(null);
+    }
+
+    @Override
+    public User addUser(User user) {
+        UserDao userDao = userMapper.userToUserDao(user);
+        UserDao userReturned = userRepository.save(userDao);
+        return userMapper.userDaoToUser(userReturned);
     }
 }
